@@ -18,7 +18,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         greetbutton = (Button)findViewById(R.id.greetbutton);
-        greetbutton.setOnClickListener((View.OnClickListener) this);
+        final TextView textmessage = (TextView) findViewById(R.id.textmessage);
+        final EditText editText = (EditText) findViewById(R.id.editText);
+
+        greetbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textmessage.setText("Good day "+editText.getText()+"!");
+
+            }
+        });
 
 
 
@@ -47,22 +56,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public void onClick(View view) {
 
-        TextView textmessage = (TextView)findViewById(R.id.textmessage);
-        EditText editText = (EditText)findViewById(R.id.editText);
-
-    }
-
-            switch (View.getId())
-            {
-                case R.id.greetbutton:
-                    textmessage.setText("Good day "+editText+""!);
-
-                    break;
-
-                default:
-                    break;
-            }
     }
